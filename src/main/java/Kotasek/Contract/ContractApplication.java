@@ -6,6 +6,11 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
+
+//APLIKACE NA SPRAVU ZAKAZEK
+//FILIP KOTASEK
+
+
 @SpringBootApplication
 @EnableJpaRepositories
 public class ContractApplication {
