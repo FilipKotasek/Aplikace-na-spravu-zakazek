@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head th:replace="~{fragments\layout.html :: head}">
+
+</head>
+<body>
+
+  <header th:replace="~{fragments\layout.html :: header}">
+
+  </header>
+
+
+
+
+
+  <div class="alert alert-success alert-dismissible fade show"  role="alert" th:if="${success}">
+       <div th:text="${success}"></div>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span> </button>
+
+  </div>
+
+
+  <div class="alert alert-success alert-dismissible fade show"  role="alert" th:if="${error}">
+      <div th:text="${error}"></div>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span> </button>
+
+  </div>
+
+
+
+      <div class="container col-8 text-center">
+        <h3>Zakázky</h3>
+        <p> Níže je výpis zakázek</p>
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Název</a></th>
+                <th scope="col">Zákazník</a></th>
+                <th scope="col">Cena</th>
+                       <th scope="col">Akce</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr th:each="contract:${contracts}">
+                <th th:text="${contract.id}"></th>
+                <td th:text="${contract.name}"></td>
+                <td th:text="${contract.customer}"></td>
+                <td th:text="${contract.price}"></td>
+
+                  <td><a class="btn-outline-primary btn btn-sm" th:href="@{'/contracts/' + ${contract.id}}"  >Detail</a></td>
+                  <td><a class="btn-outline-primary btn btn-sm" th:href="@{'/edit/'+ ${contract.id}}"   sec:authorize="hasRole('ADMIN')">Upravit</a></td>
+                  <td><a class="btn-outline-danger btn btn-sm" th:href="@{'/delete/' + ${contract.id}}"  sec:authorize="hasRole('ADMIN')">Smazat</a></td>
+              </tr>
+             
+
+            </tbody>
+          </table>
+
+          <a class="btn-primary btn" th:href="@{/create}" sec:authorize="hasRole('ADMIN')"> Nová zakázka</a>
+
+      </div>
+
+<footer th:replace="~{fragments\layout.html :: footer}"></footer>
+<script src="bootstrap.bundle.min.js"></script>
+</body>
+</html>

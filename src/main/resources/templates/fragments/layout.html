@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
+
+
+<head th:fragment="head">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" th:href="@{/assets/bootstrap.min.css}">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/6.0.3/tinymce.min.js"></script>
+  <script>
+        tinymce.init({
+            selector: "textarea[id*=description]",
+            entities: "160,nbsp",
+            entity_encoding: "named",
+            entity_encoding: "raw"
+        });
+    </script>
+
+  <title>Zakázky</title>
+</head>
+
+
+<body>
+
+<header th:fragment="header" class="p-3 text-bg-dark">
+  <div class="container">
+    <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+
+      <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+        <li><a th:href="@{/}" class="nav-link px-2 text-white">Zakázky</a></li>
+        <li><a th:href="@{/contracts}" class="nav-link px-2 text-white">Seznam zakázek</a></li>
+
+      </ul>
+      <div class="text-end">
+        <a type="button" th:href="@{/account/register}" class="btn btn-outline-light me-2" sec:authorize="isAnonymous()">Registrace</a>
+        <a type="button" th:href="@{/account/login}" class="btn btn-outline-light me-2" sec:authorize="isAnonymous()">Login</a>
+        <form method="post" th:action="@{/account/logout}">
+        <button class="btn btn-warning" sec:authorize="isAuthenticated()">Odhlásit se</button>
+        </form>
+
+
+      </div>
+    </div>
+  </div>
+</header>
+
+
+
+
+
+
+
+
+
+
+<footer th:fragment="footer" class="py-3 my-4">
+  <p class="text-center text-body-secondary">© 2024 Filip Kotásek</p>
+  <script th:src="@{/assets/bootstrap.bundle.min.js}"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</footer>
+
+</body>
+</html>

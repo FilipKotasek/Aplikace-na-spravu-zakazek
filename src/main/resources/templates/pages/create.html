@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="~{fragments\layout.html :: head}">
+
+</head>
+<body>
+
+<header class="p-3 text-bg-dark" th:replace="~{fragments\layout.html :: header}">
+
+</header>
+
+<div class="container col-4 text-center">
+    <h3>Zakázky</h3>
+    <p> Nová Zakázka</p>
+
+
+
+    <div class="m-3">
+        <form  method="post"  th:object="${contractDTO}" th:action="@{create}">
+            <div class="form-group ">
+                <label for="name">Název</label>
+                <input type="text" class="form-control" th:field="*{name}" id="name" name="name">
+             <small class="text-danger"  th:errors="*{name}"></small>
+            </div>
+
+            <div class="form-group ">
+                <label for="customer">Zákazník</label>
+                <input type="text" class="form-control" th:field="*{customer}" id="customer" name="customer">
+                <small class="text-danger"  th:errors="*{customer}"></small>
+            </div>
+
+            <div class="form-group ">
+                <label for="price">Cena</label>
+                <input type="text" class="form-control" th:field="*{price}" id="price" name="price">
+                <small class="text-danger" th:errors="*{price}"></small>
+            </div>
+
+            <div class="form-group ">
+                <label for="description">Popis</label>
+                <textarea class="form-control" id="description" th:field="*{description}" name="description" ></textarea>
+                <small class="text-danger" th:errors="*{description}" ></small>
+            </div>
+
+            <button type="submit" class="btn btn-primary m-1" >Uložit</button>
+        </form>
+    </div>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+<footer th:replace="~{fragments\layout.html :: footer}">
+
+</footer>
+<script th:src="@{/assets/bootstrap.bundle.min.js}"></script>
+</body>
+</html>

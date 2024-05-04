@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="~{fragments/layout.html :: head}">
+
+</head>
+
+<body>
+
+  <header th:replace="~{fragments/layout.html :: header}" >
+
+  </header>
+
+      <div class="container col-8 text-left">
+        <h3>Zakázky</h3>
+        <h4 th:text="'Detail Kontaktu: ' + ${contract.id}">Detail Kontaktu</h4>
+       
+         <h5>Název</h5>
+         <p th:text="${contract.name}">Vymalování</p>
+         
+         <h5>Zákazník</h5>
+         <p th:text="${contract.customer}">Jenda</p>
+
+         <h5>Cena</h5>
+         <p th:text="${contract.price}">50000</p>
+         <h5>Popis</h5>
+         <p th:utext="${contract.description}">Vymalovani rodinneho domu</p>
+
+
+         <a class="btn-primary btn" th:href="@{../contracts}">Zpět</a>
+      </div>
+
+    
+  <footer th:replace="~{fragments/layout.html :: footer}">
+
+  </footer>
+<script src="bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="~{fragments\layout.html :: head}">
+
+</head>
+<body>
+
+  <header class="p-3 text-bg-dark" th:replace="~{fragments\layout.html :: header}">
+
+  </header>
+
+      <div class="container col-4 text-center">
+        <h3>Zakázky</h3>
+        <p> Vítejte v aplikaci na správu zakázek</p>
+
+
+        <div class="container">
+
+            <img th:src="@{img/contract.jpg}" class="img-fluid">
+        </div>
+
+
+
+      </div>
+
+
+
+
+
+
+
+
+<footer th:replace="~{fragments\layout.html :: footer}">
+
+  </footer>    
+<script th:src="@{/assets/bootstrap.bundle.min.js}"></script>
+</body>
+</html>
